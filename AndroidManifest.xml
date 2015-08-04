@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.thoughtcrime.redphone"
-          android:versionCode="30"
-          android:versionName="1.0.3">
+    package="org.thoughtcrime.redphone">
 
     <!-- C2DM Permissions -->
-    <permission android:name="org.thoughtcrime.redphone.permission.C2D_MESSAGE"
-                android:protectionLevel="signature" />
+    <permission
+        android:name="org.thoughtcrime.redphone.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
 
     <uses-permission android:name="org.thoughtcrime.redphone.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -31,117 +30,141 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.RAISED_THREAD_PRIORITY" />
-    <uses-permission android:name="android.permission.READ_CALL_STATE"/>
-    <uses-permission android:name="android.permission.READ_LOGS"/>
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALL_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <application android:name="org.thoughtcrime.redphone.ApplicationListener"
-                 android:icon="@drawable/icon"
-                 android:label="@string/app_name"
-                 android:theme="@style/Theme.Sherlock.Light.DarkActionBar">
+    <application
+        android:allowBackup="false"
+        android:name="org.thoughtcrime.redphone.ApplicationListener"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.redphone">
 
-        <activity android:name=".RedPhone"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Theme.Sherlock"
-                  android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|fontScale"
-                  android:launchMode="singleTask">
+        <activity
+            android:name=".RedPhone"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|fontScale"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
 
             <intent-filter>
-                <action android:name="android.intent.action.SENDTO"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="sms"/>
+                <action android:name="android.intent.action.SENDTO" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="sms" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.DialerActivity"
-                  android:label="@string/app_name"
-                  android:screenOrientation="portrait"
-                  android:uiOptions="splitActionBarWhenNarrow"
-                  android:launchMode="singleTop"
-                  android:windowSoftInputMode="stateAlwaysHidden"
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize">
+        <activity
+            android:name=".ui.DialerActivity"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.AboutActivity" 
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
-        
-        <activity android:name=".ui.CreateAccountActivity"
-                  android:launchMode="singleTask"                               
-                  android:windowSoftInputMode="stateHidden"
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity
+            android:name=".ui.AboutActivity"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize" />
 
-        <activity android:name=".ui.ApplicationPreferencesActivity" 
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity
+            android:name=".ui.CreateAccountActivity"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden" />
 
-        <activity android:name=".ui.RedPhoneChooser" 
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar" 
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity
+            android:name=".ui.ApplicationPreferencesActivity"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize" />
 
-        <activity android:name=".ui.CountrySelectionActivity"
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
-                  
-        <activity android:name=".ui.RegistrationProgressActivity"
-                  android:windowSoftInputMode="stateUnchanged"
-                  android:launchMode="singleTask"
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity
+            android:name=".ui.RedPhoneChooser"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <activity android:name=".ui.RegistrationProblemsActivity"
-                  android:theme="@style/RedPhone.Light.Dialog"
-                  android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity
+            android:name=".ui.CountrySelectionActivity"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize" />
 
-        <service android:enabled="true" android:name=".RedPhoneService"/>
-        <service android:enabled="true" android:name=".gcm.GCMRegistrationService"/>
-        <service android:enabled="true" android:name=".gcm.GCMIntentService"/>
-        <service android:enabled="true" android:name=".registration.RegistrationService"/>
+        <activity
+            android:name=".ui.RegistrationProgressActivity"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateUnchanged" />
 
-        <receiver android:name=".call.CallListener"
-                  android:enabled="true"
-                  android:exported="true">
+        <activity
+            android:name=".ui.RegistrationProblemsActivity"
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"
+            android:theme="@style/RedPhone.Light.Dialog" />
+
+        <service
+            android:name=".RedPhoneService"
+            android:enabled="true" />
+        <service
+            android:name=".gcm.GCMRegistrationService"
+            android:enabled="true" />
+        <service
+            android:name=".gcm.GCMIntentService"
+            android:enabled="true" />
+        <service
+            android:name=".registration.RegistrationService"
+            android:enabled="true" />
+
+        <receiver
+            android:name=".call.CallListener"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter android:priority="-1">
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".directory.DirectoryUpdateReceiver"/>
+        <receiver android:name=".directory.DirectoryUpdateReceiver" />
 
         <receiver android:name=".directory.DirectoryBootReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".sms.SMSListener"
-                  android:enabled="true"
-                  android:exported="true">
+        <receiver
+            android:name=".sms.SMSListener"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter android:priority="2147483647">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
-                 
-                <action android:name="com.google.android.apps.googlevoice.SMS_RECEIVED"
-                        android:permission="com.google.android.apps.googlevoice.permission.RECEIVE_SMS"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+
+                <action
+                    android:name="com.google.android.apps.googlevoice.SMS_RECEIVED"
+                    android:permission="com.google.android.apps.googlevoice.permission.RECEIVE_SMS" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".gcm.GCMBroadcastReceiver"
-                  android:permission="com.google.android.c2dm.permission.SEND" >
+        <receiver
+            android:name=".gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
                 <category android:name="org.thoughtcrime.redphone" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".registration.RegistrationNotifier"
-                  android:exported="false">
+        <receiver
+            android:name=".registration.RegistrationNotifier"
+            android:exported="false">
             <intent-filter>
                 <action android:name="org.thoughtcrime.redphone.REGISTRATION_EVENT" />
-            </intent-filter>            
+            </intent-filter>
         </receiver>
-        
+
     </application>
 </manifest>

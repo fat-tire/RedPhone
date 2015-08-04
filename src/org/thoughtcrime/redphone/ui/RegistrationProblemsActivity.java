@@ -1,14 +1,13 @@
 package org.thoughtcrime.redphone.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import org.thoughtcrime.redphone.R;
 
-public class RegistrationProblemsActivity extends Activity {
+public class RegistrationProblemsActivity extends AppCompatActivity {
 
   @Override
   public void onCreate(Bundle bundle) {

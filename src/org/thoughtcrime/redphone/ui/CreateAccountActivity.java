@@ -22,10 +22,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -34,20 +39,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.thoughtcrime.redphone.ApplicationContext;
-import org.thoughtcrime.redphone.R;
-import org.thoughtcrime.redphone.util.PhoneNumberFormatter;
-import org.thoughtcrime.redphone.util.Util;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.google.i18n.phonenumbers.AsYouTypeFormatter;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
+
+import org.thoughtcrime.redphone.ApplicationContext;
+import org.thoughtcrime.redphone.R;
+import org.thoughtcrime.redphone.util.PhoneNumberFormatter;
+import org.thoughtcrime.redphone.util.Util;
 
 /**
  * The create account activity.  Kicks off an account creation event, then waits
@@ -58,7 +58,7 @@ import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
  *
  */
 
-public class CreateAccountActivity extends SherlockActivity {
+public class CreateAccountActivity extends AppCompatActivity {
 
   private static final int PICK_COUNTRY = 1;
 
@@ -84,7 +84,7 @@ public class CreateAccountActivity extends SherlockActivity {
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater inflater = this.getSupportMenuInflater();
+    MenuInflater inflater = this.getMenuInflater();
     inflater.inflate(R.menu.about_menu, menu);
     return true;
   }

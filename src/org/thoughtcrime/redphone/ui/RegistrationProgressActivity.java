@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -27,7 +28,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import org.thoughtcrime.redphone.R;
 import org.thoughtcrime.redphone.registration.RegistrationService;
 import org.thoughtcrime.redphone.registration.RegistrationService.RegistrationState;
@@ -38,7 +38,7 @@ import org.thoughtcrime.redphone.signaling.SignalingException;
 import org.thoughtcrime.redphone.util.PhoneNumberFormatter;
 import org.thoughtcrime.redphone.util.Util;
 
-public class RegistrationProgressActivity extends SherlockActivity {
+public class RegistrationProgressActivity extends AppCompatActivity {
 
   private static final int FOCUSED_COLOR   = Color.parseColor("#ff333333");
   private static final int UNFOCUSED_COLOR = Color.parseColor("#ff808080");

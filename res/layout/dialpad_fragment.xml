@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,122 +13,165 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:layout_gravity="center_vertical"
-              android:gravity="center_vertical"
-              android:background="#ffffff">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="#ffffff"
+    android:orientation="vertical">
 
-    <LinearLayout android:id="@+id/digits_container"
-                  android:layout_width="match_parent"
-                  android:layout_height="47dp"
-                  android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/digits_container"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal">
 
-        <view class="org.thoughtcrime.redphone.dialer.DigitsEditText"
-              android:id="@+id/digits"
-              android:layout_width="0dp"
-              android:layout_height="match_parent"
-              android:paddingLeft="16dp"
-              android:scrollHorizontally="true"
-              android:singleLine="true"
-              android:layout_weight="1"
-              android:gravity="center"
-              android:background="@android:color/transparent"
-              android:maxLines="1"
-              android:textSize="36sp"
-              android:freezesText="true"
-              android:focusableInTouchMode="true"
-              android:editable="true"
-              android:cursorVisible="false"
-              android:textColor="#000000"
-              android:textCursorDrawable="@null"
-              android:fontFamily="sans-serif-light"
-              android:textStyle="normal" />
+        <view
+            android:id="@+id/digits"
+            class="org.thoughtcrime.redphone.dialer.DigitsEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:cursorVisible="false"
+            android:editable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="sans-serif-light"
+            android:freezesText="true"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textCursorDrawable="@null"
+            android:textSize="48sp"
+            android:textStyle="normal" />
 
         <ImageButton
-                android:id="@+id/deleteButton"
-                android:paddingLeft="16sp"
-                android:paddingRight="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:state_enabled="false"
-                android:background="@drawable/dialpad_key_colors"
-                android:contentDescription="Delete"
-                android:src="@drawable/ic_dial_action_delete" />
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/dialpad_key_colors"
+            android:contentDescription="@string/deletebuttondescription"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            android:src="@drawable/ic_dial_action_delete"
+            android:state_enabled="false" />
     </LinearLayout>
 
-    <TableLayout android:id="@+id/dialpad"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:paddingLeft="5dp"
-                 android:paddingRight="5dp"
-                 android:stretchColumns="*"
-                 android:layoutDirection="ltr" >
+    <TableLayout
+        android:id="@+id/dialpad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layoutDirection="ltr"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:stretchColumns="*">
 
         <TableRow>
-            <include layout="@layout/dialpad_key" android:id="@+id/one"/>
-            <include layout="@layout/dialpad_key" android:id="@+id/two"/>
-            <include layout="@layout/dialpad_key" android:id="@+id/three"/>
+
+            <include
+                android:id="@+id/one"
+                layout="@layout/dialpad_key" />
+
+            <include
+                android:id="@+id/two"
+                layout="@layout/dialpad_key" />
+
+            <include
+                android:id="@+id/three"
+                layout="@layout/dialpad_key" />
         </TableRow>
 
         <TableRow>
-            <include layout="@layout/dialpad_key" android:id="@+id/four"/>
-            <include layout="@layout/dialpad_key" android:id="@+id/five"/>
-            <include layout="@layout/dialpad_key" android:id="@+id/six"/>
+
+            <include
+                android:id="@+id/four"
+                layout="@layout/dialpad_key" />
+
+            <include
+                android:id="@+id/five"
+                layout="@layout/dialpad_key" />
+
+            <include
+                android:id="@+id/six"
+                layout="@layout/dialpad_key" />
         </TableRow>
 
         <TableRow>
-            <include layout="@layout/dialpad_key" android:id="@+id/seven"/>
-            <include layout="@layout/dialpad_key" android:id="@+id/eight"/>
-            <include layout="@layout/dialpad_key" android:id="@+id/nine"/>
+
+            <include
+                android:id="@+id/seven"
+                layout="@layout/dialpad_key" />
+
+            <include
+                android:id="@+id/eight"
+                layout="@layout/dialpad_key" />
+
+            <include
+                android:id="@+id/nine"
+                layout="@layout/dialpad_key" />
         </TableRow>
 
         <TableRow>
+
             <org.thoughtcrime.redphone.dialer.DialpadKeyButton
-                    android:id="@+id/star"
-                    style="@style/DialpadKeyButtonStyle">
-                <LinearLayout
-                        style="@style/DialpadKeyInternalLayoutStyle">
+                android:id="@+id/star"
+                style="@style/DialpadKeyButtonStyle">
+
+                <LinearLayout style="@style/DialpadKeyInternalLayoutStyle">
+
                     <TextView
-                            android:id="@+id/dialpad_key_number"
-                            style="@style/DialpadKeyStarPoundStyle" />
+                        android:id="@+id/dialpad_key_number"
+                        style="@style/DialpadKeyStarPoundStyle" />
+
                     <View
-                            android:layout_height="match_parent"
-                            android:layout_width="50dp" />
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
                 </LinearLayout>
             </org.thoughtcrime.redphone.dialer.DialpadKeyButton>
-            <include layout="@layout/dialpad_key" android:id="@+id/zero"/>
+
+            <include
+                android:id="@+id/zero"
+                layout="@layout/dialpad_key" />
+
             <org.thoughtcrime.redphone.dialer.DialpadKeyButton
-                    android:id="@+id/pound"
-                    style="@style/DialpadKeyButtonStyle">
-                <LinearLayout
-                        style="@style/DialpadKeyInternalLayoutStyle">
+                android:id="@+id/pound"
+                style="@style/DialpadKeyButtonStyle">
+
+                <LinearLayout style="@style/DialpadKeyInternalLayoutStyle">
+
                     <TextView
-                            android:id="@id/dialpad_key_number"
-                            style="@style/DialpadKeyStarPoundStyle" />
+                        android:id="@id/dialpad_key_number"
+                        style="@style/DialpadKeyStarPoundStyle" />
+
                     <View
-                            android:layout_height="match_parent"
-                            android:layout_width="50dp" />
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
                 </LinearLayout>
             </org.thoughtcrime.redphone.dialer.DialpadKeyButton>
         </TableRow>
     </TableLayout>
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal"
-                  android:layout_marginTop="30dp"
-                  android:layout_gravity="center_horizontal"
-                  android:gravity="center_horizontal"
-                  android:background="#3B77E7">
+    <LinearLayout
+        android:id="@+id/call_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="#3B77E7"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
-        <ImageView android:id="@+id/call_button"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:paddingTop="10dp"
-                   android:paddingBottom="10dp"
-                   android:src="@drawable/ic_dial_action_call"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/callbuttondescription"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/ic_dial_action_call" />
 
     </LinearLayout>
 </LinearLayout>

@@ -41,15 +41,12 @@ public class TargetDrawable {
     private Drawable mDrawable;
 
     /* package */ static class DrawableWithAlpha extends Drawable {
-        private float mAlpha = 1.0f;
+        private int mAlpha = 255;
         private Drawable mRealDrawable;
         public DrawableWithAlpha(Drawable realDrawable) {
             mRealDrawable = realDrawable;
         }
-        public void setAlpha(float alpha) {
-            mAlpha = alpha;
-        }
-        public float getAlpha() {
+        public int getAlpha() {
             return mAlpha;
         }
         @Override

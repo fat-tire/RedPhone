@@ -2,12 +2,11 @@ package org.thoughtcrime.redphone.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import org.thoughtcrime.redphone.R;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-
-public class CountrySelectionActivity extends SherlockFragmentActivity
+public class CountrySelectionActivity extends FragmentActivity
                                       implements CountrySelectionFragment.CountrySelectedListener
 
 {

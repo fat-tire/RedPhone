@@ -31,5 +31,6 @@ public class ApplicationListener extends Application {
   @Override
   public void onCreate() {
     PRNGFixes.apply();
+    super.onCreate();
   }
 }

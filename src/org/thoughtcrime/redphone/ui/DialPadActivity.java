@@ -20,21 +20,19 @@ package org.thoughtcrime.redphone.ui;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 
 import org.thoughtcrime.redphone.Constants;
 import org.thoughtcrime.redphone.R;
@@ -50,7 +48,7 @@ import org.thoughtcrime.redphone.util.Util;
  *
  */
 
-public class DialPadActivity extends SherlockFragment
+public class DialPadActivity extends Fragment
     implements DialpadKeyButton.OnPressedListener, View.OnLongClickListener, View.OnClickListener {
 
   private EditText digitEntry;
@@ -79,7 +77,7 @@ public class DialPadActivity extends SherlockFragment
   }
 
   private void initializeCallButton(View fragmentView) {
-    ImageView callButton = (ImageView)fragmentView.findViewById(R.id.call_button);
+    LinearLayout callButton = (LinearLayout)fragmentView.findViewById(R.id.call_button);
     callButton.setOnClickListener(this);
   }
 

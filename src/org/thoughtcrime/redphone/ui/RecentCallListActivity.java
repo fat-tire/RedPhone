@@ -25,7 +25,9 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.CallLog.Calls;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -36,8 +38,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockListFragment;
 
 import org.thoughtcrime.redphone.Constants;
 import org.thoughtcrime.redphone.R;
@@ -54,7 +54,7 @@ import org.thoughtcrime.redphone.util.Util;
  * @author Moxie Marlinspike
  *
  */
-public class RecentCallListActivity extends SherlockListFragment
+public class RecentCallListActivity extends ListFragment
                                     implements LoaderManager.LoaderCallbacks<Cursor>
 {
 
@@ -133,9 +133,9 @@ public class RecentCallListActivity extends SherlockListFragment
       this.avatar           = (ImageView) findViewById(R.id.contact_photo_image);
       this.number           = (TextView)  findViewById(R.id.number);
       this.name             = (TextView) findViewById(R.id.name);
-      this.incomingCallIcon = getResources().getDrawable(R.drawable.ic_call_log_list_incoming_call);
-      this.outgoingCallIcon = getResources().getDrawable(R.drawable.ic_call_log_list_outgoing_call);
-      this.missedCallIcon   = getResources().getDrawable(R.drawable.ic_call_log_list_missed_call);
+      this.incomingCallIcon = ContextCompat.getDrawable(context, R.drawable.ic_call_log_list_incoming_call);
+      this.outgoingCallIcon = ContextCompat.getDrawable(context, R.drawable.ic_call_log_list_outgoing_call);
+      this.missedCallIcon   = ContextCompat.getDrawable(context, R.drawable.ic_call_log_list_missed_call);
     }
 
     public void set(String name, String number, int type, long date) {

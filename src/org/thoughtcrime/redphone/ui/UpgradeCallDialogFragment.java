@@ -17,12 +17,10 @@
 
 package org.thoughtcrime.redphone.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,9 +28,6 @@ import android.support.v4.app.DialogFragment;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ScaleXSpan;
-import android.text.style.TypefaceSpan;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.widget.Button;
 
@@ -46,14 +41,9 @@ import org.thoughtcrime.redphone.call.CallListener;
 
 public class UpgradeCallDialogFragment extends DialogFragment {
 
-  private final String   number;
-  public UpgradeCallDialogFragment(final String number) {
-    this.number = number;
-  }
-
   @Override
   public Dialog onCreateDialog(Bundle savedInstanceState) {
-
+    final String number =  getArguments().getString("number");
     final AlertDialog.Builder builder;
     if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.HONEYCOMB) {
       builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.RedPhone_Light_Dialog));

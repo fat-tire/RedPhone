@@ -20,9 +20,9 @@ package org.thoughtcrime.redphone.directory;
 import android.content.Context;
 import android.util.Log;
 
-import com.google.thoughtcrimegson.Gson;
-import com.google.thoughtcrimegson.JsonParseException;
-import com.google.thoughtcrimegson.annotations.SerializedName;
+import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
+import com.google.gson.annotations.SerializedName;
 
 import org.thoughtcrime.redphone.util.Base64;
 import org.thoughtcrime.redphone.util.PhoneNumberFormatter;

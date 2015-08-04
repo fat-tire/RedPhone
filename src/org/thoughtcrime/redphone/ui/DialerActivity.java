@@ -26,20 +26,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import org.thoughtcrime.redphone.Constants;
 import org.thoughtcrime.redphone.R;
 import org.thoughtcrime.redphone.directory.DirectoryUpdateReceiver;
 import org.thoughtcrime.redphone.gcm.GCMRegistrarHelper;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.ActionBar.TabListener;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import org.thoughtcrime.redphone.util.PeriodicActionUtils;
 
 /**
@@ -49,7 +47,7 @@ import org.thoughtcrime.redphone.util.PeriodicActionUtils;
  *
  */
 
-public class DialerActivity extends SherlockFragmentActivity {
+public class DialerActivity extends AppCompatActivity {
 
   public static final int    MISSED_CALL     = 1;
   public static final String CALL_LOG_ACTION = "org.thoughtcrime.redphone.ui.DialerActivity";
@@ -62,10 +60,12 @@ public class DialerActivity extends SherlockFragmentActivity {
   protected void onCreate(Bundle icicle) {
     super.onCreate(icicle);
 
-    ActionBar actionBar = this.getSupportActionBar();
+    ActionBar actionBar = getSupportActionBar();
     actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-    actionBar.setDisplayShowHomeEnabled(false);
-    actionBar.setDisplayShowTitleEnabled(false);
+   // actionBar.setIcon(R.drawable.icon);
+    actionBar.setTitle(Html.fromHtml("<font color='#FF0000'>"+ actionBar.getTitle() + "</font>"));
+    actionBar.setDisplayShowHomeEnabled(true);
+    actionBar.setDisplayShowTitleEnabled(true);
     actionBar.setDisplayUseLogoEnabled(false);
 
     checkForFreshInstall();
@@ -120,18 +120,18 @@ public class DialerActivity extends SherlockFragmentActivity {
       tab.setIcon(icons[i]);
 
       final int tabIndex = i;
-      tab.setTabListener(new TabListener() {
+      tab.setTabListener(new ActionBar.TabListener() {
         @Override
-        public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
           viewPager.setCurrentItem(tabIndex);
         }
 
         @Override
-        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
         }
 
         @Override
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
         }
       });
       getSupportActionBar().addTab(tab);
@@ -158,7 +158,7 @@ public class DialerActivity extends SherlockFragmentActivity {
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater inflater = this.getSupportMenuInflater();
+    MenuInflater inflater = this.getMenuInflater();
     inflater.inflate(R.menu.dialer_options_menu, menu);
     return true;
   }

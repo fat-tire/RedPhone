@@ -2,6 +2,7 @@ package org.thoughtcrime.redphone.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.text.Editable;
@@ -16,12 +17,10 @@ import android.widget.SimpleAdapter;
 import org.thoughtcrime.redphone.R;
 import org.thoughtcrime.redphone.registration.CountryListLoader;
 
-import com.actionbarsherlock.app.SherlockListFragment;
-
 import java.util.ArrayList;
 import java.util.Map;
 
-public class CountrySelectionFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<ArrayList<Map<String, String>>> {
+public class CountrySelectionFragment extends ListFragment implements LoaderManager.LoaderCallbacks<ArrayList<Map<String, String>>> {
 
   private EditText countryFilter;
   private CountrySelectedListener listener;

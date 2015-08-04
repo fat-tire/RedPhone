@@ -151,5 +151,7 @@
     <string name="registration_progress__call_me">Call Me</string>
     <string name="CallAudioManager__sorry_there_was_a_problem_initializing_the_audio_on_your_device">Sorry, there was a problem initializing the audio on your device.</string>
     <string name="DialPadActivity_you_must_dial_a_number_first">You must dial a number first</string>
+    <string name="deletebuttondescription">Delete</string>
+    <string name="callbuttondescription">Call</string>
     <!-- EOF -->
 </resources>

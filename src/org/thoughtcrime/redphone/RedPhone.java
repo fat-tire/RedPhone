@@ -17,7 +17,6 @@
 
 package org.thoughtcrime.redphone;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -30,15 +29,14 @@ import android.content.ServiceConnection;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -50,7 +48,6 @@ import org.thoughtcrime.redphone.ui.CallControls;
 import org.thoughtcrime.redphone.ui.CallScreen;
 import org.thoughtcrime.redphone.util.AudioUtils;
 import org.thoughtcrime.redphone.util.PeriodicActionUtils;
-
 
 import java.security.Security;
 import java.util.ArrayList;
@@ -64,7 +61,7 @@ import java.util.ArrayList;
  * @author Moxie Marlinspike
  *
  */
-public class RedPhone extends Activity {
+public class RedPhone extends AppCompatActivity {
   static {
     Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
   }
@@ -111,10 +108,10 @@ public class RedPhone extends Activity {
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
+    //requestWindowFeature(Window.FEATURE_NO_TITLE);
     super.onCreate(savedInstanceState);
 
     startServiceIfNecessary();
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.main);
 
     setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);

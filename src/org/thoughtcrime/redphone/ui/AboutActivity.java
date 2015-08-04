@@ -20,10 +20,8 @@ package org.thoughtcrime.redphone.ui;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
 
 import org.thoughtcrime.redphone.R;
 
@@ -33,7 +31,7 @@ import org.thoughtcrime.redphone.R;
  * @author Moxie Marlinspike
  *
  */
-public class AboutActivity extends SherlockActivity {
+public class AboutActivity extends AppCompatActivity {
 
   @Override
   public void onCreate(Bundle icicle) {
@@ -48,16 +46,15 @@ public class AboutActivity extends SherlockActivity {
                                                     getCurrentVersion()));
   }
 
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        finish();
-        return true;
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
-
-    return false;
-  }
 
   private String getCurrentVersion() {
     try {

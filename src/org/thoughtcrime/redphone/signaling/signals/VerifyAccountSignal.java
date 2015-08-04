@@ -17,7 +17,7 @@
 
 package org.thoughtcrime.redphone.signaling.signals;
 
-import com.google.thoughtcrimegson.Gson;
+import com.google.gson.Gson;
 
 /**
  * A verification signal used to confirm an account creation.

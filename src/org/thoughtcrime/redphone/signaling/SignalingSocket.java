@@ -21,8 +21,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
-
-import com.google.thoughtcrimegson.Gson;
+import com.google.gson.Gson;
 
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.thoughtcrime.redphone.Constants;

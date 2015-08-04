@@ -3,8 +3,6 @@ package org.thoughtcrime.redphone.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import com.actionbarsherlock.internal.view.View_HasStateListenerSupport;
-import com.actionbarsherlock.internal.view.View_OnAttachStateChangeListener;
 
 /**
  * The ABS MenuPopupHelper will only attach to a view that implements View_HasStateListenerSupport.
@@ -14,7 +12,7 @@ import com.actionbarsherlock.internal.view.View_OnAttachStateChangeListener;
  *
  * @author Stuart O. Anderson
 */
-public class StateListenerView extends View implements View_HasStateListenerSupport {
+public class StateListenerView extends View {
   public StateListenerView(Context context) {
     super(context);
   }
@@ -28,10 +26,10 @@ public class StateListenerView extends View implements View_HasStateListenerSupp
   }
 
   @Override
-  public void addOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
+  public void addOnAttachStateChangeListener(OnAttachStateChangeListener listener) {
   }
 
   @Override
-  public void removeOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
+  public void removeOnAttachStateChangeListener(OnAttachStateChangeListener listener) {
   }
 }

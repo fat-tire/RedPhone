@@ -17,27 +17,10 @@
 
 package org.thoughtcrime.redphone.ui;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
-import android.view.ContextThemeWrapper;
-import android.view.View;
-import android.widget.Button;
-
-import com.actionbarsherlock.app.SherlockActivity;
 
 import org.thoughtcrime.redphone.Constants;
-import org.thoughtcrime.redphone.R;
-import org.thoughtcrime.redphone.RedPhone;
-import org.thoughtcrime.redphone.RedPhoneService;
-import org.thoughtcrime.redphone.call.CallChooserCache;
-import org.thoughtcrime.redphone.call.CallListener;
 
 /**
  * A lightweight dialog for prompting the user to upgrade their outgoing call.
@@ -45,6 +28,7 @@ import org.thoughtcrime.redphone.call.CallListener;
  * @author Moxie Marlinspike
  *
  */
+
 public class RedPhoneChooser extends FragmentActivity {
 
   @Override
@@ -55,8 +39,10 @@ public class RedPhoneChooser extends FragmentActivity {
   }
 
   private void initializeResources() {
-
-    UpgradeCallDialogFragment dialogFragment = new UpgradeCallDialogFragment(getIntent().getStringExtra(Constants.REMOTE_NUMBER));
+    Bundle args = new Bundle();
+    args.putString("number", getIntent().getStringExtra(Constants.REMOTE_NUMBER));
+    UpgradeCallDialogFragment dialogFragment = new UpgradeCallDialogFragment();
+    dialogFragment.setArguments(args);
     dialogFragment.show(getSupportFragmentManager(), "upgrade");
   }
 }
